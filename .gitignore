@@ -13,3 +13,12 @@
 # reference docs, which axis re-materializes on every sync.
 .axis/context/refs/
 # END: managed by AXIS
+
+# Local environment and generated artifacts
+.env
+.venv/
+data/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc

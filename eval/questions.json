@@ -1,0 +1,107 @@
+[
+  {
+    "id": "q1",
+    "question": "What is Nimbus Desk?",
+    "answerable": true,
+    "expected_sources": [
+      "01-product-overview.pdf"
+    ],
+    "expected_contains": [
+      "Nimbus Desk"
+    ]
+  },
+  {
+    "id": "q2",
+    "question": "When is standard support available?",
+    "answerable": true,
+    "expected_sources": [
+      "02-support-policy.pdf"
+    ],
+    "expected_contains": [
+      "08:00",
+      "18:00"
+    ]
+  },
+  {
+    "id": "q3",
+    "question": "How quickly must critical incidents receive a first response?",
+    "answerable": true,
+    "expected_sources": [
+      "02-support-policy.pdf"
+    ],
+    "expected_contains": [
+      "15 minutes"
+    ]
+  },
+  {
+    "id": "q4",
+    "question": "When does planned maintenance occur?",
+    "answerable": true,
+    "expected_sources": [
+      "03-operations-guide.pdf"
+    ],
+    "expected_contains": [
+      "first Saturday"
+    ]
+  },
+  {
+    "id": "q5",
+    "question": "What happens to standard support response targets during planned maintenance?",
+    "answerable": true,
+    "expected_sources": [
+      "02-support-policy.pdf",
+      "03-operations-guide.pdf"
+    ],
+    "expected_contains": [
+      "paused"
+    ]
+  },
+  {
+    "id": "q6",
+    "question": "When should a support agent escalate to operations?",
+    "answerable": true,
+    "expected_sources": [
+      "02-support-policy.pdf"
+    ],
+    "expected_contains": [
+      "service availability",
+      "five users"
+    ]
+  },
+  {
+    "id": "q7",
+    "question": "How often are status updates posted during maintenance or an incident?",
+    "answerable": true,
+    "expected_sources": [
+      "03-operations-guide.pdf"
+    ],
+    "expected_contains": [
+      "30 minutes"
+    ]
+  },
+  {
+    "id": "q8",
+    "question": "What must be verified before each release?",
+    "answerable": true,
+    "expected_sources": [
+      "03-operations-guide.pdf"
+    ],
+    "expected_contains": [
+      "three reference documents"
+    ]
+  },
+  {
+    "id": "q9",
+    "question": "What is the refund policy for Nimbus Desk subscriptions?",
+    "answerable": false,
+    "expected_sources": [],
+    "expected_contains": []
+  },
+  {
+    "id": "q10",
+    "question": "Which cloud region hosts the production database?",
+    "answerable": false,
+    "expected_sources": [],
+    "expected_contains": []
+  }
+]

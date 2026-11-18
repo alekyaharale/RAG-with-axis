@@ -1,0 +1,19 @@
+flowchart TD
+  cli([CLI: rag-ingest / ingest.main]) --> settings[Load settings\n.env + environment variables]
+  settings --> key{GOOGLE_API_KEY set?}
+  key -->|no| errKey([Exit 2: missing key])
+  key -->|yes| corpus[Load corpus from CORPUS_DIR\ndocs/corpus: 3 supported files\nextract, normalize, SHA-256 hash]
+  corpus --> existing{INDEX_PATH exists?}
+  existing -->|yes| loadIdx[Load existing SearchIndex\nif valid JSON/schema]
+  existing -->|no / invalid| noReuse[No reusable index]
+  loadIdx --> perDoc[For each document]
+  noReuse --> perDoc
+  perDoc --> reuseCheck{Settings compatible and\ncontent hash unchanged?}
+  reuseCheck -->|yes| reuse[Reuse stored chunks + vectors]
+  reuseCheck -->|no| chunk[Chunk document\nheading-aware sections, overlap,\nprovenance offsets/page/heading]
+  chunk --> embed[Embed chunk texts\nGemini Embedding API\ngemini-embedding-001]
+  embed --> storeDoc[Store document chunks + vectors]
+  reuse --> storeDoc
+  storeDoc --> assemble[Assemble SearchIndex\nmanifest + per-document chunks]
+  assemble --> save[Atomic write JSON to INDEX_PATH\ndata/index.json]
+  save --> stats([Print build stats to stdout])

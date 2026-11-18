@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rag-qa"
+version = "0.1.0"
+description = "Google ADK Q&A agent over a small local document corpus."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "google-adk>=2.14,<3",
+  "google-genai>=2.30,<3",
+  "pypdf>=7,<8",
+  "python-dotenv>=1,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "pytest-asyncio>=0.24",
+  "ruff>=0.8",
+  "pre-commit>=4",
+]
+
+[project.scripts]
+rag-ingest = "rag_qa.ingest:main"
+rag-qa = "rag_qa.cli:main"
+rag-eval = "rag_qa.evaluate:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["rag_qa"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+  "live: tests that call the Gemini API and require GOOGLE_API_KEY",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
