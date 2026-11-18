@@ -1,0 +1,46 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "bash": {
+      "rm -rf /": "deny",
+      "rm -rf /bin*": "deny",
+      "rm -rf /boot*": "deny",
+      "rm -rf /dev*": "deny",
+      "rm -rf /etc*": "deny",
+      "rm -rf /home*": "deny",
+      "rm -rf /lib*": "deny",
+      "rm -rf /opt*": "deny",
+      "rm -rf /proc*": "deny",
+      "rm -rf /sbin*": "deny",
+      "rm -rf /sys*": "deny",
+      "rm -rf /System*": "deny",
+      "rm -rf /usr*": "deny",
+      "rm -rf /Users*": "deny",
+      "rm -rf /var*": "deny",
+      "rm -rf ~": "deny",
+      "rm -rf $HOME": "deny",
+      "git push --force *": "deny",
+      "git push -f *": "deny",
+      "curl * | bash": "deny",
+      "curl * | sh": "deny",
+      "find * -exec *": "deny",
+      "find * -execdir *": "deny",
+      "find * -delete": "deny"
+    },
+    "read": {
+      ".env": "deny",
+      ".env.*": "deny",
+      "secrets/**": "deny",
+      "**/secrets/**": "deny",
+      ".axis/artifacts.json": "deny"
+    },
+    "edit": {
+      ".env": "deny",
+      ".env.*": "deny",
+      "secrets/**": "deny",
+      "**/secrets/**": "deny",
+      ".axis/artifacts.json": "deny",
+      ".axis/policy/**": "deny"
+    }
+  }
+}
